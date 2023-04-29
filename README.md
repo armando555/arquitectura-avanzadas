@@ -56,17 +56,20 @@ docker build -t twelve/fast-api .
 
 # Stop container
 ```
-docker stop fast-api-app && docker rm fast-api-app
+docker stop bicicletas2 && docker rm bicicletas2
 ```
-# run backend
+# run backends
 ```
-docker run --name fast-api-app -p 8001:8000 -d twelve/fast-api
+docker run -p 8009:8000 --name bicicletas -d bicicletas
 ```
-# create administrator
 ```
-docker exec -i -t fast-api-app sh
+docker run -p 8002:8000 --name renting -e "HOST_BICYCLES=http://bicicletas:8000" --link bicicletas:bicicletas -d bicicletas2
+```
+# login to the container administrator
+```
+docker exec -i -t bicicletas sh
 ```
 # see errors in the docker
 ```
-docker logs fast-api-app
+docker logs bicicletas
 ```

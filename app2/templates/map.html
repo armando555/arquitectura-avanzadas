@@ -10,17 +10,24 @@
      crossorigin=""></script>
 </head>
 <body>
-    <h1>Item ID: {{id}}</h1>
+    {% set data = marker %}
+    <h1>Mapa de bicicletas</h1>
+    <h2>Estas son las biciletas rentadas son:</h2>
+    {% for name in names %}
+        <h3>Bicycle id = {{ name[0] }} y Name = {{name[1]}}</h3> 
+    {% endfor %}
     <div id="map"></div>
 </body>
+<script > var points ={{markers}}</script>
 <script>
-    
+    //console.log(algo)
     const map = L.map('map').setView([51.505, -0.09], 13);
-
+    //console.log(marker)
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
-    var marker_s = L.marker([51.5, -0.09]).addTo(map);
+    points.forEach(element =>{ L.marker([element[1], element[2]]).addTo(map).bindPopup(element[0].toString());; console.log(element)});
+    //var marker_s = L.marker([51.5, -0.09]).addTo(map);
 </script>
 </html>

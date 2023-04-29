@@ -28,10 +28,10 @@ async def delete(id,db: Session = Depends(get_db_connection)):
     return renting_repository.delete(db, id)
 
 @router.put("/{id}", status_code=status.HTTP_202_ACCEPTED)
-async def update(id, request: ShowRentingSchema, db: Session = Depends(get_db_connection)):
+async def update(id, request: RentingSchema, db: Session = Depends(get_db_connection)):
     return renting_repository.update(db, request, id)
 
 @router.post("/rentings", status_code=status.HTTP_200_OK)
-async def bulk(request: List[ShowRentingSchema], db: Session = Depends(get_db_connection)):
+async def bulk(request: List[RentingSchema], db: Session = Depends(get_db_connection)):
     return renting_repository.bulk(db=db, request=request)
 
