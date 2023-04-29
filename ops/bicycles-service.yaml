@@ -1,29 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: renting-deployment
+  name: bicycles-deployment
   namespace: backend
   labels:
-    app: renting-app
+    app: bicycles-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: renting-app
+      app: bicycles-app
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: renting-app
+        app: bicycles-app
     spec:
       containers:
-      - name: renting-app
-        image: ariosg55/renting-fastapi
+      - name: bicycles-app
+        image: ariosg55/bicycles-fastapi
         imagePullPolicy: "Always"
-        env:
-        - name: HOST_BICYCLES
-          value: "bicycles-service.backend.svc.cluster.local"
         ports:
           - name: http2
             containerPort: 8000
@@ -38,15 +35,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: renting-service
+  name: bicycles-service
   namespace: backend
 spec:
   selector:
-    app: renting-app
+    app: bicycles-app
   ports:
     - name: http2
       port: 8000
       targetPort: 8000
   type: NodePort
-
   
