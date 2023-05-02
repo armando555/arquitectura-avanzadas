@@ -1,13 +1,7 @@
-# FAST API TEMPLATE
+# Advanced Architectures App
 
 ## Authors:
 - Armando Rios
-
-## Coding rules
-- Do not create more than one class per file, unless it is really needed.
-- Follow PEP 8 https://www.python.org/dev/peps/pep-0008/ (install a code linter and an autoformater like pylance)
-- All models will be defined under the app.custom_models module, and must be imported in app.models file.
-- All views will be defined under the app.custom_views module, and must be imported and registered in the app.views.file.
 
 # Explanation
 
@@ -18,8 +12,11 @@ Basically this repo has 3 directories: bicicletas, renting and ops.
 - Ops is the folder with the manifest for the Kubernetes deployment
 
 
-
-
+## Coding rules
+- Do not create more than one class per file, unless it is really needed.
+- Follow PEP 8 https://www.python.org/dev/peps/pep-0008/ (install a code linter and an autoformater like pylance)
+- All models will be defined under the app.custom_models module, and must be imported in app.models file.
+- All views will be defined under the app.custom_views module, and must be imported and registered in the app.views.file.
 
 ## Installation
 ### Install virtualenv
