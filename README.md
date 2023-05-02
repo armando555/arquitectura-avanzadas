@@ -9,6 +9,18 @@
 - All models will be defined under the app.custom_models module, and must be imported in app.models file.
 - All views will be defined under the app.custom_views module, and must be imported and registered in the app.views.file.
 
+# Explanation
+
+Basically this repo has 3 directories: bicicletas, renting and ops.
+
+- Bicicletas is the folder app for the CRUD of the bicycles the basic operations
+- Renting is the folder app for the renting bicycle with a date from and date to. Here I expose the route /map with the MAP with https://leafletjs.com/ for rendering markers. Also, I consume an Bicicletas GET API for getting the latitude and longitude for every bicycle that is rented.
+- Ops is the folder with the manifest for the Kubernetes deployment
+
+
+
+
+
 ## Installation
 ### Install virtualenv
 Run
